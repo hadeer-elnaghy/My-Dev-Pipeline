@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  # Copy everything from the GitHub repo to the server folder
+  - source: /
+    destination: /home/ubuntu/myapp
+hooks:
+  BeforeInstall:
+    # Run the setup script before doing anything
+    - location: scripts/install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    # Run the start script to launch the app
+    - location: scripts/start.sh
+      timeout: 300
+      runas: root
