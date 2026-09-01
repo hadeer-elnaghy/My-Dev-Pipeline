@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      # Specify the Node.js version we want the CodeBuild server to use
+      nodejs: 18
+    commands:
+      # Print a message and install dependencies
+      - echo "Installing dependencies..."
+      - npm install
+  
+  pre_build:
+    commands:
+      # You can run security checks or code linters here
+      - echo "Preparing to build..."
+  
+  build:
+    commands:
+      # Run unit tests here to ensure the code is bug-free (e.g., npm test)
+      - echo "Building and testing the application..."
+  
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+artifacts:
+  files:
+    # Package ALL files in the directory to send them to CodeDeploy
+    - '**/*'
+  # Name of the output package
+  name: my-app-artifact

@@ -1,0 +1,12 @@
+{
+  "name": "my-cicd-project",
+  "version": "1.0.0",
+  "description": "Simple CI/CD Node.js App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
