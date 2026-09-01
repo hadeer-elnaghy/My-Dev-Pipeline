@@ -1,12 +1,10 @@
 #!/bin/bash
-set -e
 
-# Export standard system PATH
-export PATH=$PATH:/usr/bin:/bin:/usr/local/bin
-
-# Update and install Node.js & npm
+# Update server packages
 apt-get update -y
+
+# Install Node.js and npm
 apt-get install -y nodejs npm
 
-# Install PM2 globally
-npm install -g pm2
+# Install PM2 globally to keep the app running in the background
+npm install pm2 -g1~a#!/bin/bash
