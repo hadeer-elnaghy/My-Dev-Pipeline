@@ -1,17 +1,22 @@
 version: 0.0
 os: linux
 files:
-  # Copy everything from the GitHub repo to the server folder
   - source: /
     destination: /home/ubuntu/myapp
 hooks:
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 60
+      runas: root
   BeforeInstall:
-    # Run the setup script before doing anything
     - location: scripts/install.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    # Run the start script to launch the app
     - location: scripts/start.sh
       timeout: 300
+      runas: root
+  ValidateService:
+    - location: scripts/validate.sh
+      timeout: 60
       runas: root
