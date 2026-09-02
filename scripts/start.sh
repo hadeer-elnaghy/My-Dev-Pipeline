@@ -1,6 +1,6 @@
+# scripts/start.sh
 #!/bin/bash
 set -e
-export PATH=$PATH:/usr/local/bin:/usr/bin
 
 cd /home/ubuntu/myapp
 npm install
@@ -13,6 +13,6 @@ else
     cp config-dev.json config.json
 fi
 
-pm2 stop server || true
-pm2 delete server || true
+pm2 stop my-web-app || true
+pm2 delete my-web-app || true
 pm2 start server.js --name "my-web-app"
